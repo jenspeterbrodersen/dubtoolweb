@@ -6,15 +6,15 @@ Jeg ville forsøge at uploade en lokal xml fil, trække data ud, derefter oprett
 
 xml filen indeholder et tegnefilmsmanuskript med replikker og rollenavne.
 
-Rollenavne samt tilhørende replikker trækkes ud og vises i browseren. Xlsx filen oprettes, og en download knap aktiveres. 
+Rollenavne samt tilhørende replikker trækkes ud og vises i browseren. xlsx filen oprettes, og en download knap aktiveres. 
 
-Xlsx filen bliver formateret på en bestemt måde, og indeholder 2 tabs. Tab 1 viser Rollenavne samt replikker. 
+xlsx filen bliver formateret af koden, og indeholder 2 tabs. Tab 1 viser Rollenavne samt replikker. 
 Tab 2 viser hvilke unikke roller der er i den pågældende episode. 
 
 For at teste:
-1. Gå in på [denne url](http://www.jenspeter.net/dubtools/build/php/index.php)
+1. Gå til [denne url](http://www.jenspeter.net/dubtools/build/php/index.php)
 2. Klik på ```Upload XML file```
-3. Upload test manuskriptefilen som hentes [her](http://jenspeter.net/dubtools/build/Eps%20101%20Intergalactic%20Street.zip)
+3. Upload test manuskriptfilen som hentes [her](http://jenspeter.net/dubtools/build/Eps%20101%20Intergalactic%20Street.zip)
 4. Klik på ```Download XLSX file```
 
 
