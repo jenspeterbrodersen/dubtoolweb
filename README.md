@@ -13,11 +13,12 @@ data skrives ind, og en download knap aktiveres.
 Xlsx filen bliver formateret på en bestemt måde, og indeholder 2 tabs. Tab 1 viser Rollenavne samt replikker. 
 Tab 2 viser hvilke unikke roller der er i den pågældende episode. 
 
-Functionaliteten kan testes online her: 
+For at teste:
+1. Gå in på [denne url](http://www.jenspeter.net/dubtools/build/php/index.php)
+2. Klik på ```Upload XML file```
+3. Upload test manuskriptefilen som ligger [her](https://github.com/jenspeterbrodersen/dubtoolweb/testdata/Eps%20101%20Intergalactic%20Street.xml")
+4. Klik på ```Download XLSX file```
 
-```
-http://www.jenspeter.net/dubtools/build/php/index.php
-```
 
-Der ligger et test manuskript i folderen testdata som kan bruges til upload
+
 
