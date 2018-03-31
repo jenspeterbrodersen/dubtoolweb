@@ -115,9 +115,4 @@ window.onload = function() {
     };
     reader.readAsText(file);
   }
-
- 
-
-  
-
 };
