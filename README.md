@@ -14,7 +14,7 @@ Tab 2 viser hvilke unikke roller der er i den pågældende episode.
 For at teste:
 1. Gå til [denne url](http://www.jenspeter.net/dubtools/build/php/index.php)
 2. Klik på ```Upload XML file```
-3. Upload test manuskriptfilen som hentes [her](http://jenspeter.net/dubtools/build/Eps%20101%20Intergalactic%20Street.zip)
+3. Upload test manuskriptfilen som kan hentes [her](http://jenspeter.net/dubtools/build/Eps%20101%20Intergalactic%20Street.zip) (skal unzippes)
 4. Klik på ```Download XLSX file```
 
 
