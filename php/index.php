@@ -3,6 +3,7 @@
     <head>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js"></script>
       <link href="../css/main.css" rel="stylesheet">
       <script src="../js/pdf2xml.js"></script>
       <meta charset="utf-8">
@@ -62,6 +63,8 @@
 
             $objPHPExcel->getActiveSheet()->getStyle("A1:A3000")->getFont()->setSize(14);
             $objPHPExcel->getActiveSheet()->getStyle("B1:B3000")->getFont()->setSize(14);
+            $objPHPExcel->getActiveSheet()->getStyle("C1:C3000")->getFont()->setSize(14);
+            $objPHPExcel->getActiveSheet()->getStyle("D1:D3000")->getFont()->setSize(14);
 
             $objPHPExcel->getActiveSheet()->getStyle("A1:K1")->getFont()->setBold(true);
             $objPHPExcel->getActiveSheet()
@@ -73,9 +76,13 @@
 
             $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(30);
             $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(60);
+            $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(30);
+            $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(30);
 
             $objPHPExcel->getActiveSheet()->SetCellValue('A1', "ORG CHARACTER");
             $objPHPExcel->getActiveSheet()->SetCellValue('B1', "ORG DIALOGUE");
+            $objPHPExcel->getActiveSheet()->SetCellValue('C1', "IS DUPLICATE");
+            $objPHPExcel->getActiveSheet()->SetCellValue('D1', "ORIGINAL LINE");
 
             $objPHPExcel->getActiveSheet()->getStyle('A1:A'.$objPHPExcel->getActiveSheet()->getHighestRow())
             ->getAlignment()->setWrapText(true);
@@ -83,10 +90,20 @@
             $objPHPExcel->getActiveSheet()->getStyle('B1:B'.$objPHPExcel->getActiveSheet()->getHighestRow())
             ->getAlignment()->setWrapText(true); 
 
+            $objPHPExcel->getActiveSheet()->getStyle('C1:C'.$objPHPExcel->getActiveSheet()->getHighestRow())
+            ->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
+          
+            $objPHPExcel->getActiveSheet()->getStyle('D1:D'.$objPHPExcel->getActiveSheet()->getHighestRow())
+            ->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
+
+            
+
             // Write spotting data to XLSX file
             for ($i = 0; $i <= $length; $i++) {
                 $objPHPExcel->getActiveSheet()->SetCellValue('A'.($i+2), $recieved[$i][name]);
                 $objPHPExcel->getActiveSheet()->SetCellValue('B'.($i+2), $recieved[$i][dialogue]);
+                $objPHPExcel->getActiveSheet()->SetCellValue('C'.($i+2), $recieved[$i][isDuplicate]);
+                $objPHPExcel->getActiveSheet()->SetCellValue('D'.($i+2), $recieved[$i][originalLine]);
             }
 
             // Write unique characters to new sheet 

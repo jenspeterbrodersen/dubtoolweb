@@ -1,8 +1,9 @@
 window.onload = function() {
 
   // Adjust namePos and dialoguePos to match name position + dialogue position in your xml file
-  var namePos = 378;
-  var dialoguePos = 270;
+  var namePos = 381;
+  var dialoguePos = 277;
+  // var directionPos = 173;
   var filename;
   var cleanLines = [];
   var cleanData = [];
@@ -39,13 +40,15 @@ window.onload = function() {
         }
       });
 
+
       // Create objects of name & dialogue
       cleanLines.forEach(function(entry) {
         if (entry.indexOf('left="' + namePos + '"') > -1) {
           if (!current || current.dialogue) {
             current = {
               name: regName.exec(entry)[3],
-              dialogue: null
+              dialogue: null,
+             
             };
             script.push(current);
             return;
@@ -59,13 +62,40 @@ window.onload = function() {
         // Append the new dialogue to the current dialogue list.
         // if dialogue is null, just set the dialogue as its initial value.
         var dialogue = regDialog.exec(entry)[3];
-
-        dialogue = dialogue.replace(/&lt;/g, "[").replace(/&gt;/g, "]"); // Fix HTML encoded letters
-        current.dialogue = !current.dialogue
-          ? dialogue
-          : `${current.dialogue} ${dialogue}`;
+        
+        // Fix HTML encoded letters
+        dialogue = dialogue.replace(/&lt;/g, "[").replace(/&gt;/g, "]"); 
+        dialogue = dialogue.replace(/&quot;/g, '"'); 
+        current.dialogue = !current.dialogue ? dialogue : `${current.dialogue} ${dialogue}`;
+       
       });
 
+      
+      // Find and mark doublets
+      var findDoublets = function(){
+        var originalLine = null;
+        var result = script.slice(0);
+        var result = _.map(script, function(object, index) {
+          var match = _.find(script, function(element, ind) {          
+            if (index > ind) {
+              originalLine = ind;
+              return _.isEqual(element, object);
+            }
+          })
+          if (match) {
+            object.isDuplicate = true;
+            object.originalLine = originalLine+2;
+            return object;
+          } else {
+            return object;
+          }
+        })
+      }
+      
+      findDoublets();
+
+
+      console.log("script", script)
       // Print manuscript to screen
       function showManus() {
         $("#csv").append(
