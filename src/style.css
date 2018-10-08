@@ -1,0 +1,25 @@
+  .btn {   
+    border: 1px solid rgb(115, 114, 116);
+    background-color: rgb(70, 153, 128);
+    color: white;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+  }
+  .btn a {
+    color: white;
+    text-decoration: none;
+    
+  }
+
+  .btn:hover {
+    background-color: rgb(111, 184, 184);
+    cursor: pointer;
+  }
+
+  .container.filebutton {
+    padding-bottom: 20px;
+  }

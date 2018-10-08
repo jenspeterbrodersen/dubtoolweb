@@ -1,0 +1,59 @@
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackFtpUpload = require('webpack-ftp-upload-plugin');
+
+
+module.exports = {
+  entry: {
+    app: './src/index.js',
+  },
+  mode: 'production',
+  devServer: {
+    contentBase: './dist',
+  },
+  plugins: [
+    new WebpackFtpUpload({
+      host: 'ftp.jenspeter.net',
+      port: '22',
+      username: 'jenspeter.net',
+      password: 'Data1969d',
+      local: path.join(__dirname, 'dist'),
+      path: '/customers/5/c/8/jenspeter.net/httpd.www/some'
+    }),
+    new CopyWebpackPlugin([
+      './src/excel.php',
+      {from: './src/Classes/', to: 'Classes'}
+      
+    ]),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      _: 'lodash',
+    }),
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title:'dubtools'
+    })
+  ],
+  node: {
+    fs: 'empty'
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
