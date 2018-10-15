@@ -1,6 +1,6 @@
   .btn {   
-    border: 1px solid rgb(115, 114, 116);
-    background-color: rgb(70, 153, 128);
+    border: 1px solid rgb(31, 14, 58);
+    background-color: rgb(101, 194, 218);
     color: white;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,10 +16,31 @@
   }
 
   .btn:hover {
-    background-color: rgb(111, 184, 184);
+    background-color: rgb(81, 126, 156);
     cursor: pointer;
   }
 
   .container.filebutton {
     padding-bottom: 20px;
+  }
+
+  .banner {
+    width: 1108px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 5px;
+    background-image: url('http://placeimg.com/1108/200/tech');
+    margin-bottom: 30px;
+  }
+  
+  .banner span {
+    font-size:45px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#fff;
+    padding-left:30px;
+  }
+
+  .banner img {
+    padding: 20px;
+    border-radius: 30px;
   }

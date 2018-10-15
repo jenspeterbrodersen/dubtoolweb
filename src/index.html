@@ -1,0 +1,33 @@
+<html> 
+  <head>
+    <body>
+      <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
+      <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
+      <div id="wrapper" class="toggled">        
+        <div class="banner">
+          <img src="/images/dubtoollogo01.png"/>
+          <span>
+            Dubtool - templating the world
+          </span>
+          </div>
+          <div id="root"></div>
+          <div id="page-content-wrapper">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="container filebutton">
+                              <label class="btn btn-default btn-file">Upload script...<input type="file" id="inputfile" style="display: none;"></label>
+                              <label class="btn btn-default btn-file" id="download" style="display:none"><a href="file.csv" id="link">Download XLSX file</a></label>
+                          </div>
+                          <div class="container filename"><div id="list"></div></div>
+                          <div class="container strip col-md-12"><div id="csv"></div></div>                    
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      
+    </body>
+  </head> 
+
+</html>

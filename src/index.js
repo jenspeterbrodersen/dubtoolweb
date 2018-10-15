@@ -2,35 +2,6 @@ import 'jquery';
 import 'lodash';
 import './style.css';
 
-
-function component(){
-  let element = document.createElement('div');
-  element.innerHTML =  
-    `<div id="wrapper" class="toggled">        
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Convert manuscript from XML to XLSX</h1>
-                    <div class="container filebutton">
-                        <label class="btn btn-default btn-file">Upload XML file...<input type="file" id="inputfile" style="display: none;"></label>
-                        <label class="btn btn-default btn-file" id="download" style="display:none"><a href="file.csv" id="link">Download XLSX file</a></label>
-                    </div>
-                    <div class="container filename"><div id="list"></div></div>
-                    <div class="container strip col-md-12"><div id="csv"></div></div>                    
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>`
-
-return element;
-
-}
-
-document.body.appendChild(component());
-
-console.log("09");
 window.onload = function() {
 
   // Adjust namePos and dialoguePos to match name position + dialogue position in your xml file

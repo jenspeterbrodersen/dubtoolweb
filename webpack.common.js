@@ -6,13 +6,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/preview.js',
   },
   mode: 'production',
   plugins: [
      new CopyWebpackPlugin([
       './src/excel.php',
-      {from: './src/Classes/', to: 'Classes'}  
+      {from: './src/Classes/', to: 'Classes'},
+      {from: './src/images/', to: 'images'}
     ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -21,7 +22,8 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title:'dubtools'
+      title:'dubtools',
+      template:'src/index.html'
     }),
     new webpack.HashedModuleIdsPlugin()
   ],
